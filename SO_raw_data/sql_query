@@ -1,7 +1,7 @@
 SELECT 
-A.Id, A.Body, A.CommentCount, A.Score, --Score should not be a feature
-AU.reputation, AU.UpVotes, AU.DownVotes, AU.Views,
-Q.Id, Q.AcceptedAnswerId
+A.Id, A.Body, A.CommentCount, A.LastEditDate, A.Score, --Score should not be a feature
+AU.Reputation, AU.UpVotes, AU.DownVotes, AU.Views,
+Q.Id as QId, Q.AcceptedAnswerId as QAcceptedAnswerId, Q.Body as QBody
 FROM 
 Posts as A 
 INNER JOIN  Posts as Q ON A.ParentId = Q.Id      
@@ -12,3 +12,4 @@ AND Q.Tags like '%<python>%'
 AND Q.AcceptedAnswerId  is not NULL
 AND A.PostTypeId=2
 ORDER BY Q.Id
+
