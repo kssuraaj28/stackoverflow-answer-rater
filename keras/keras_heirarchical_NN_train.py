@@ -80,9 +80,9 @@ def keras_cat_nn(train_path, test_path):
 
     # evaluate the keras model on test set
     predictions = model.predict_classes(x_test)
-    print(confusion_matrix(y_test, prediction))
+    print(confusion_matrix(y_test, predictions))
     print(classification_report(y_test, predictions))
-
+    
     plot_accuracy(history)
     plot_loss(history)
 
@@ -106,5 +106,5 @@ def plot_loss(history):
 
 if __name__ == '__main__':
 
-    keras_cat_nn(['data/test_feature.csv','data/val_feature.csv'],'data/train_feature.csv')
+    keras_cat_nn(['../data/test_feature.csv','../data/val_feature.csv'],'../data/train_feature.csv')
    
