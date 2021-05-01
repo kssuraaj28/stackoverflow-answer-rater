@@ -4,6 +4,8 @@ import numpy as np
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
+import numpy as np
+
 KERNEL='rbf'
 
 def load_dataset(csv_path, label_col='Label'):
@@ -62,6 +64,11 @@ def main(train_path,test_path):
     # Predicting
     prediction=clf.predict(x_test)
 
+#     print("hello1")
+#     print(np.unique(y_test))
+#     print(np.unique(prediction))
+#     print("hello2")
+    
     print(confusion_matrix(y_test, prediction))
     print(classification_report(y_test, prediction))
 

@@ -16,15 +16,36 @@ def find_embedding(text):
 	result = bert_embedding(words)
 	cnt = 0
 	for token in result:
-		cnt = cnt + 1
-		embed = token[1][0]
-		for j in range (0, 768):
-			arr[j] = arr[j] + embed[j]
+		for embed in token[1]:
+			cnt = cnt + 1
+			for j in range (0, 768):
+				arr[j] = arr[j] + embed[j]
 	for i in range (0 ,768):
 		arr[i] = arr[i] / cnt
 	return arr
 
-text = "this is bert !"
+# text = """<p>Solution without <code>pandas</code>:</p>
 
-ans = find_embedding(text)
-print(ans)
+# <pre><code>import csv
+
+# dataFile = 'data.csv'
+
+# with open(dataFile) as inputData:
+#     csv_input = csv.reader(inputData)
+#     i = zip(next(csv_input), zip(*csv_input))
+#     data, (_, times) = {}, next(i)
+#     for k, line in i:
+#         for t, l in zip(times, line):
+#             data.setdefault(k, {}).setdefault(t, {})
+#             data[k][int(t)] = l
+
+# print(data['Data1'][1])
+# </code></pre>
+
+# <p>Prints:</p>
+
+# <pre><code>20
+# </code></pre>"""
+
+# ans = find_embedding(text)
+# print(ans)
